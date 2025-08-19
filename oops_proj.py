@@ -10,15 +10,19 @@ class xenoverse:
                                 1. Press 1 to Sign Up       
                                 2. Press 2 to Sign In
                                 3. Press 3 to write a post
-                                4. Press 4 to message a friend \n""")
+                                4. Press 4 to message a friend 
+                                5. Press 5 to exit \n
+                           
+                                ->""")
+        
         if user_input == "1":
             self.signup()
         elif user_input == "2":
             self.signin()
         elif user_input == "3":
-            pass
+            self.myPost()
         elif user_input == "4":
-            pass
+            self.sendMessage()
         else:
             exit()
 
@@ -45,5 +49,19 @@ class xenoverse:
         
         print("\n")
         self.menu()
+
+    def myPost(self):
+        if self.loggedIn == True:
+            txt = input("Enter your message here -> ")
+            print(f"Following content has been posted: {txt}")
+        else:
+            print("You need sign in first to post something...")
+            self.menu()
+
+    def sendMessage(self):
+        if self.loggedIn == True:
+            txt = input("Enter your message here -> ")
+            person = input("Where to send the message ->")
+            print(f"Youre message was sent to {person}")
 
 obj = xenoverse()
